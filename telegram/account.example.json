@@ -1,0 +1,22 @@
+{
+  "api_id": 13250555,
+  "api_hash": "REPLACE_WITH_YOUR_API_HASH",
+  "phone": "+66930452780",
+  "session_name": "telegram/account",
+  "app": {
+    "title": "TelegramPostAggregator",
+    "short_name": "TelegramPostAggregator"
+  },
+  "mtproto_servers": {
+    "test": {
+      "dc": 2,
+      "host": "149.154.167.40",
+      "port": 443
+    },
+    "production": {
+      "dc": 2,
+      "host": "149.154.167.50",
+      "port": 443
+    }
+  }
+}

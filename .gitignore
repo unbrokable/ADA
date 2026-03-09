@@ -348,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Telegram account automation secrets/sessions
+telegram/account.local.json
+telegram/*.session
+telegram/*.session-journal
