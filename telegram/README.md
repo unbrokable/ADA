@@ -24,3 +24,13 @@ python telegram/send_from_account.py --target "@username" --text "hello"
 
 On first run, Telegram will ask for the login code (and 2FA password if enabled).  
 After successful login, the local session file is reused for future runs.
+
+For non-interactive runs (automation/CI), pass OTP and optional 2FA password:
+
+```bash
+python telegram/send_from_account.py \
+  --target "@username" \
+  --text "hello" \
+  --code "12345" \
+  --password "your_2fa_password_if_needed"
+```

@@ -12,7 +12,9 @@ def load_config(config_path: Path) -> dict:
         return json.load(f)
 
 
-async def send_message(config: dict, target: str, text: str) -> None:
+async def send_message(
+    config: dict, target: str, text: str, otp_code: str | None, twofa_password: str | None
+) -> None:
     api_id = int(config["api_id"])
     api_hash = config["api_hash"]
     phone = config["phone"]
@@ -27,7 +29,13 @@ async def send_message(config: dict, target: str, text: str) -> None:
         system_version="Linux",
     )
 
-    await client.start(phone=phone)
+    start_kwargs = {"phone": phone}
+    if otp_code:
+        start_kwargs["code_callback"] = lambda: otp_code
+    if twofa_password:
+        start_kwargs["password"] = twofa_password
+
+    await client.start(**start_kwargs)
     await client.send_message(target, text)
     await client.disconnect()
 
@@ -47,6 +55,16 @@ def parse_args() -> argparse.Namespace:
         help="Telegram username/chat/phone target (for example: @username).",
     )
     parser.add_argument("--text", required=True, help="Message text to send.")
+    parser.add_argument(
+        "--code",
+        default=None,
+        help="Telegram login code (OTP). Use this for non-interactive execution.",
+    )
+    parser.add_argument(
+        "--password",
+        default=None,
+        help="Telegram 2FA password if your account requires it.",
+    )
     return parser.parse_args()
 
 
@@ -61,7 +79,7 @@ def main() -> None:
         )
 
     config = load_config(config_path)
-    asyncio.run(send_message(config, args.target, args.text))
+    asyncio.run(send_message(config, args.target, args.text, args.code, args.password))
     print("Message sent successfully.")
 
 
