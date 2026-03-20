@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 
 namespace BayesClassifier
@@ -21,6 +21,30 @@ namespace BayesClassifier
             (double spam, double notSpam) = Classifier.Determine(Reader.ReadData(), Message.Text);
             string message = spam > notSpam ? "Spam!!!" : "Not spam";
             PredictionLabel.Text = $"Spam = {spam}  Not spam = {notSpam} \n{message}";
+        }
+
+        private async void SendTelegramButton_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(Message.Text))
+            {
+                MessageBox.Show("Enter text before sending to Telegram.", "Missing text", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            SendTelegramButton.Enabled = false;
+            try
+            {
+                await TelegramBotClient.SendTextAsync(Message.Text);
+                MessageBox.Show("Message sent to Telegram.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Telegram send failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                SendTelegramButton.Enabled = true;
+            }
         }
 
         private void FillChart()
