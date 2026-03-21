@@ -1,4 +1,4 @@
-﻿
+
 namespace BayesClassifier
 {
     partial class Form1
@@ -34,6 +34,7 @@ namespace BayesClassifier
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Message = new System.Windows.Forms.RichTextBox();
             this.ValidateButton = new System.Windows.Forms.Button();
+            this.SendTelegramButton = new System.Windows.Forms.Button();
             this.PredictionLabel = new System.Windows.Forms.Label();
             this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
@@ -57,13 +58,23 @@ namespace BayesClassifier
             this.ValidateButton.UseVisualStyleBackColor = true;
             this.ValidateButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // SendTelegramButton
+            // 
+            this.SendTelegramButton.Location = new System.Drawing.Point(184, 340);
+            this.SendTelegramButton.Name = "SendTelegramButton";
+            this.SendTelegramButton.Size = new System.Drawing.Size(126, 43);
+            this.SendTelegramButton.TabIndex = 2;
+            this.SendTelegramButton.Text = "Send Telegram";
+            this.SendTelegramButton.UseVisualStyleBackColor = true;
+            this.SendTelegramButton.Click += new System.EventHandler(this.SendTelegramButton_Click);
+            // 
             // PredictionLabel
             // 
             this.PredictionLabel.AutoSize = true;
-            this.PredictionLabel.Location = new System.Drawing.Point(292, 340);
+            this.PredictionLabel.Location = new System.Drawing.Point(340, 340);
             this.PredictionLabel.Name = "PredictionLabel";
             this.PredictionLabel.Size = new System.Drawing.Size(57, 13);
-            this.PredictionLabel.TabIndex = 2;
+            this.PredictionLabel.TabIndex = 3;
             this.PredictionLabel.Text = "Prediction:";
             // 
             // Chart
@@ -79,7 +90,7 @@ namespace BayesClassifier
             series1.Name = "Percentage of correct answers";
             this.Chart.Series.Add(series1);
             this.Chart.Size = new System.Drawing.Size(702, 300);
-            this.Chart.TabIndex = 3;
+            this.Chart.TabIndex = 4;
             this.Chart.Text = "chart1";
             // 
             // Form1
@@ -89,6 +100,7 @@ namespace BayesClassifier
             this.ClientSize = new System.Drawing.Size(1217, 407);
             this.Controls.Add(this.Chart);
             this.Controls.Add(this.PredictionLabel);
+            this.Controls.Add(this.SendTelegramButton);
             this.Controls.Add(this.ValidateButton);
             this.Controls.Add(this.Message);
             this.Name = "Form1";
@@ -103,6 +115,7 @@ namespace BayesClassifier
 
         private System.Windows.Forms.RichTextBox Message;
         private System.Windows.Forms.Button ValidateButton;
+        private System.Windows.Forms.Button SendTelegramButton;
         private System.Windows.Forms.Label PredictionLabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
     }
