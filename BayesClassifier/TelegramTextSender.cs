@@ -35,7 +35,7 @@ namespace BayesClassifier
                 throw new InvalidOperationException("Missing Telegram chat id. Provide --telegram-chat-id, TELEGRAM_CHAT_ID, or App.config key TelegramChatId.");
             }
 
-            string endpoint = string.Format("https://api.telegram.org/bot{0}/sendMessage", Uri.EscapeDataString(botToken));
+            string endpoint = string.Format("https://api.telegram.org/bot{0}/sendMessage", botToken);
             string payload = string.Format("chat_id={0}&text={1}", Uri.EscapeDataString(chatId), Uri.EscapeDataString(message));
 
             using (var client = new HttpClient())
