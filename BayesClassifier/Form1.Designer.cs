@@ -36,6 +36,7 @@ namespace BayesClassifier
             this.ValidateButton = new System.Windows.Forms.Button();
             this.PredictionLabel = new System.Windows.Forms.Label();
             this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.SendTelegramButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +83,22 @@ namespace BayesClassifier
             this.Chart.TabIndex = 3;
             this.Chart.Text = "chart1";
             // 
+            // SendTelegramButton
+            // 
+            this.SendTelegramButton.Location = new System.Drawing.Point(188, 340);
+            this.SendTelegramButton.Name = "SendTelegramButton";
+            this.SendTelegramButton.Size = new System.Drawing.Size(126, 43);
+            this.SendTelegramButton.TabIndex = 4;
+            this.SendTelegramButton.Text = "Send to Telegram";
+            this.SendTelegramButton.UseVisualStyleBackColor = true;
+            this.SendTelegramButton.Click += new System.EventHandler(this.SendTelegramButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 407);
+            this.Controls.Add(this.SendTelegramButton);
             this.Controls.Add(this.Chart);
             this.Controls.Add(this.PredictionLabel);
             this.Controls.Add(this.ValidateButton);
@@ -105,6 +117,7 @@ namespace BayesClassifier
         private System.Windows.Forms.Button ValidateButton;
         private System.Windows.Forms.Label PredictionLabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
+        private System.Windows.Forms.Button SendTelegramButton;
     }
 }
 

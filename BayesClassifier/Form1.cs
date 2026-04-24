@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace BayesClassifier
@@ -28,6 +29,34 @@ namespace BayesClassifier
             for (int i = 0; i <= 10; i++)
             {
                 Chart.Series[0].Points.AddXY(i*10 + "%", Classifier.CalculatePercentageRigthAnswers(i * 10));
+            }
+        }
+
+        private async void SendTelegramButton_Click(object sender, EventArgs e)
+        {
+            string text = Message.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                MessageBox.Show("Enter text before sending it to Telegram.", "Telegram", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string botToken = ConfigurationManager.AppSettings["TelegramBotToken"];
+            string chatId = ConfigurationManager.AppSettings["TelegramChatId"];
+
+            try
+            {
+                SendTelegramButton.Enabled = false;
+                await TelegramSender.SendTextAsync(botToken, chatId, text);
+                MessageBox.Show("Text was sent to Telegram.", "Telegram", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to send Telegram message.\n{ex.Message}", "Telegram", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                SendTelegramButton.Enabled = true;
             }
         }
     }
