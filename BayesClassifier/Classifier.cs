@@ -9,11 +9,10 @@ namespace BayesClassifier
         public static (double Spam, double NotSpam) Determine(Dictionary<string, Statistic> words, string data)
         {
             string[] datas = Helper.TransformDataToWords(new string[] { data }, 100);
+            Func<string[], Func<Statistic, double>, double> calculateOdds = (dataWords, func) =>
+                dataWords.Select(w => words.ContainsKey(w) ? func(words[w]) : 1).Aggregate((f, s) => f * s);
 
-            return (0.5 * CalculateOdds(datas, st => st.ProbabilitySpam), 0.5 * CalculateOdds(datas, st => st.ProbabilityNotSpam));
-
-            double CalculateOdds(string[] dataWords, Func<Statistic, double> func)
-                 => dataWords.Select(w => words.ContainsKey(w) ? func(words[w]) : 1).Aggregate((f, s) => f * s);
+            return (0.5 * calculateOdds(datas, st => st.ProbabilitySpam), 0.5 * calculateOdds(datas, st => st.ProbabilityNotSpam));
         }
 
         public static double CalculatePercentageRigthAnswers(int percentage)
