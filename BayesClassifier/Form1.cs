@@ -23,6 +23,30 @@ namespace BayesClassifier
             PredictionLabel.Text = $"Spam = {spam}  Not spam = {notSpam} \n{message}";
         }
 
+        private async void SendTelegramButton_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(Message.Text))
+            {
+                return;
+            }
+
+            SendTelegramButton.Enabled = false;
+
+            try
+            {
+                await TelegramMessageSender.SendTextAsync(Message.Text);
+                MessageBox.Show("Text sent to Telegram.", "Telegram", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Telegram sending failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                SendTelegramButton.Enabled = true;
+            }
+        }
+
         private void FillChart()
         {
             for (int i = 0; i <= 10; i++)
