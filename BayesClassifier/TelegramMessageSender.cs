@@ -20,10 +20,10 @@ namespace BayesClassifier
         }
 
         private static string BotToken
-            => ConfigurationManager.AppSettings["TelegramBotToken"];
+            => GetSetting("TelegramBotToken", "TELEGRAM_BOT_TOKEN");
 
         private static string ChatId
-            => ConfigurationManager.AppSettings["TelegramChatId"];
+            => GetSetting("TelegramChatId", "TELEGRAM_CHAT_ID");
 
         public static async Task SendTextAsync(string text)
         {
@@ -45,5 +45,14 @@ namespace BayesClassifier
 
         private static string GetSendMessageUrl()
             => $"https://api.telegram.org/bot{BotToken}/sendMessage";
+
+        private static string GetSetting(string appSettingKey, string environmentVariableName)
+        {
+            string appSetting = ConfigurationManager.AppSettings[appSettingKey];
+
+            return !String.IsNullOrWhiteSpace(appSetting)
+                ? appSetting
+                : Environment.GetEnvironmentVariable(environmentVariableName);
+        }
     }
 }

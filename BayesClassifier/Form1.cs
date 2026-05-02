@@ -33,7 +33,7 @@ namespace BayesClassifier
             if (!TelegramMessageSender.IsConfigured)
             {
                 MessageBox.Show(
-                    "Configure TelegramBotToken and TelegramChatId in App.config before sending.",
+                    "Configure TelegramBotToken and TelegramChatId in App.config or set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID before sending.",
                     "Telegram is not configured",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
