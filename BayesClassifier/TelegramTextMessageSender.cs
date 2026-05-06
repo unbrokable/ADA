@@ -18,8 +18,8 @@ namespace BayesClassifier
 
         public TelegramTextMessageSender()
             : this(
-                ConfigurationManager.AppSettings["Telegram.BotToken"],
-                ConfigurationManager.AppSettings["Telegram.ChatId"])
+                GetSetting("Telegram.BotToken", "TELEGRAM_BOT_TOKEN"),
+                GetSetting("Telegram.ChatId", "TELEGRAM_CHAT_ID"))
         {
         }
 
@@ -57,6 +57,15 @@ namespace BayesClassifier
             {
                 response.EnsureSuccessStatusCode();
             }
+        }
+
+        private static string GetSetting(string appSettingsKey, string environmentVariable)
+        {
+            string value = ConfigurationManager.AppSettings[appSettingsKey];
+
+            return !String.IsNullOrWhiteSpace(value)
+                ? value
+                : Environment.GetEnvironmentVariable(environmentVariable);
         }
     }
 }
