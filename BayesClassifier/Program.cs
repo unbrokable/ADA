@@ -9,8 +9,14 @@ namespace BayesClassifier
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            if (TelegramTextSender.IsTelegramSendRequest(args))
+            {
+                Environment.ExitCode = TelegramTextSender.Run(args);
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
