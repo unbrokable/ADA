@@ -37,7 +37,7 @@ BayesClassifier.exe --send-telegram --token "123456:bot-token" --chat-id "123456
 The CLI reads credentials in this order:
 
 1. Command-line options: `--token` / `--chat-id`
-2. Environment variables: `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`
+2. Environment variables: `TELEGRAM_BOT_TOKEN`, `BOT_TOKEN`, or `TG_BOT_TOKEN`; `TELEGRAM_CHAT_ID`, `TELEGRAM_CHATID`, or `TG_CHAT_ID`
 3. `App.config` app settings: `TelegramBotToken` / `TelegramChatId`
 
 If no message is supplied, `TELEGRAM_MESSAGE` is used, then the default message `text`.

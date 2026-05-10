@@ -168,11 +168,15 @@ namespace BayesClassifier
                     token = FirstNonEmpty(
                         token,
                         Environment.GetEnvironmentVariable("TELEGRAM_BOT_TOKEN"),
+                        Environment.GetEnvironmentVariable("BOT_TOKEN"),
+                        Environment.GetEnvironmentVariable("TG_BOT_TOKEN"),
                         ConfigurationManager.AppSettings["TelegramBotToken"]);
 
                     chatId = FirstNonEmpty(
                         chatId,
                         Environment.GetEnvironmentVariable("TELEGRAM_CHAT_ID"),
+                        Environment.GetEnvironmentVariable("TELEGRAM_CHATID"),
+                        Environment.GetEnvironmentVariable("TG_CHAT_ID"),
                         ConfigurationManager.AppSettings["TelegramChatId"]);
 
                     if (string.IsNullOrWhiteSpace(token))
@@ -190,6 +194,8 @@ namespace BayesClassifier
                     chatId = FirstNonEmpty(
                         chatId,
                         Environment.GetEnvironmentVariable("TELEGRAM_CHAT_ID"),
+                        Environment.GetEnvironmentVariable("TELEGRAM_CHATID"),
+                        Environment.GetEnvironmentVariable("TG_CHAT_ID"),
                         ConfigurationManager.AppSettings["TelegramChatId"]);
                 }
 
@@ -214,7 +220,7 @@ namespace BayesClassifier
 
             private static string ReadValue(string[] args, ref int index, string optionName)
             {
-                if (index + 1 >= args.Length || args[index + 1].StartsWith("--", StringComparison.Ordinal))
+                if (index + 1 >= args.Length)
                 {
                     throw new TelegramUsageException("Missing value for " + optionName + ".");
                 }
