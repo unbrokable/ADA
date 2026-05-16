@@ -114,7 +114,7 @@ config_path="$script_dir/BayesClassifier/App.config"
 
 token="${TELEGRAM_BOT_TOKEN:-${TELEGRAM_TOKEN:-${BOT_TOKEN:-}}}"
 chat_id="${TELEGRAM_CHAT_ID:-${CHAT_ID:-}}"
-message="${TELEGRAM_TEXT:-text}"
+message="${TELEGRAM_TEXT:-}"
 parse_mode="${TELEGRAM_PARSE_MODE:-}"
 dry_run=false
 positionals=()
