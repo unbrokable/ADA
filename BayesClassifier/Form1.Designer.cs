@@ -36,6 +36,12 @@ namespace BayesClassifier
             this.ValidateButton = new System.Windows.Forms.Button();
             this.PredictionLabel = new System.Windows.Forms.Label();
             this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.TelegramBotTokenLabel = new System.Windows.Forms.Label();
+            this.TelegramBotTokenTextBox = new System.Windows.Forms.TextBox();
+            this.TelegramChatIdLabel = new System.Windows.Forms.Label();
+            this.TelegramChatIdTextBox = new System.Windows.Forms.TextBox();
+            this.SendTelegramButton = new System.Windows.Forms.Button();
+            this.TelegramStatusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +88,69 @@ namespace BayesClassifier
             this.Chart.TabIndex = 3;
             this.Chart.Text = "chart1";
             // 
+            // TelegramBotTokenLabel
+            // 
+            this.TelegramBotTokenLabel.AutoSize = true;
+            this.TelegramBotTokenLabel.Location = new System.Drawing.Point(43, 403);
+            this.TelegramBotTokenLabel.Name = "TelegramBotTokenLabel";
+            this.TelegramBotTokenLabel.Size = new System.Drawing.Size(81, 13);
+            this.TelegramBotTokenLabel.TabIndex = 4;
+            this.TelegramBotTokenLabel.Text = "Bot token:";
+            // 
+            // TelegramBotTokenTextBox
+            // 
+            this.TelegramBotTokenTextBox.Location = new System.Drawing.Point(130, 400);
+            this.TelegramBotTokenTextBox.Name = "TelegramBotTokenTextBox";
+            this.TelegramBotTokenTextBox.Size = new System.Drawing.Size(303, 20);
+            this.TelegramBotTokenTextBox.TabIndex = 5;
+            this.TelegramBotTokenTextBox.UseSystemPasswordChar = true;
+            // 
+            // TelegramChatIdLabel
+            // 
+            this.TelegramChatIdLabel.AutoSize = true;
+            this.TelegramChatIdLabel.Location = new System.Drawing.Point(43, 433);
+            this.TelegramChatIdLabel.Name = "TelegramChatIdLabel";
+            this.TelegramChatIdLabel.Size = new System.Drawing.Size(46, 13);
+            this.TelegramChatIdLabel.TabIndex = 6;
+            this.TelegramChatIdLabel.Text = "Chat id:";
+            // 
+            // TelegramChatIdTextBox
+            // 
+            this.TelegramChatIdTextBox.Location = new System.Drawing.Point(130, 430);
+            this.TelegramChatIdTextBox.Name = "TelegramChatIdTextBox";
+            this.TelegramChatIdTextBox.Size = new System.Drawing.Size(303, 20);
+            this.TelegramChatIdTextBox.TabIndex = 7;
+            // 
+            // SendTelegramButton
+            // 
+            this.SendTelegramButton.Location = new System.Drawing.Point(493, 400);
+            this.SendTelegramButton.Name = "SendTelegramButton";
+            this.SendTelegramButton.Size = new System.Drawing.Size(126, 43);
+            this.SendTelegramButton.TabIndex = 8;
+            this.SendTelegramButton.Text = "Send to Telegram";
+            this.SendTelegramButton.UseVisualStyleBackColor = true;
+            this.SendTelegramButton.Click += new System.EventHandler(this.SendTelegramButton_Click);
+            // 
+            // TelegramStatusLabel
+            // 
+            this.TelegramStatusLabel.AutoSize = true;
+            this.TelegramStatusLabel.Location = new System.Drawing.Point(640, 414);
+            this.TelegramStatusLabel.Name = "TelegramStatusLabel";
+            this.TelegramStatusLabel.Size = new System.Drawing.Size(91, 13);
+            this.TelegramStatusLabel.TabIndex = 9;
+            this.TelegramStatusLabel.Text = "Telegram: ready";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 407);
+            this.ClientSize = new System.Drawing.Size(1217, 475);
+            this.Controls.Add(this.TelegramStatusLabel);
+            this.Controls.Add(this.SendTelegramButton);
+            this.Controls.Add(this.TelegramChatIdTextBox);
+            this.Controls.Add(this.TelegramChatIdLabel);
+            this.Controls.Add(this.TelegramBotTokenTextBox);
+            this.Controls.Add(this.TelegramBotTokenLabel);
             this.Controls.Add(this.Chart);
             this.Controls.Add(this.PredictionLabel);
             this.Controls.Add(this.ValidateButton);
@@ -105,6 +169,12 @@ namespace BayesClassifier
         private System.Windows.Forms.Button ValidateButton;
         private System.Windows.Forms.Label PredictionLabel;
         private System.Windows.Forms.DataVisualization.Charting.Chart Chart;
+        private System.Windows.Forms.Label TelegramBotTokenLabel;
+        private System.Windows.Forms.TextBox TelegramBotTokenTextBox;
+        private System.Windows.Forms.Label TelegramChatIdLabel;
+        private System.Windows.Forms.TextBox TelegramChatIdTextBox;
+        private System.Windows.Forms.Button SendTelegramButton;
+        private System.Windows.Forms.Label TelegramStatusLabel;
     }
 }
 
