@@ -89,40 +89,40 @@ namespace BayesClassifier
             this.Chart.Text = "chart1";
             // 
             // BotTokenLabel
-            // 
+            //
             this.BotTokenLabel.AutoSize = true;
             this.BotTokenLabel.Location = new System.Drawing.Point(493, 342);
             this.BotTokenLabel.Name = "BotTokenLabel";
             this.BotTokenLabel.Size = new System.Drawing.Size(59, 13);
             this.BotTokenLabel.TabIndex = 4;
             this.BotTokenLabel.Text = "Bot token:";
-            // 
+            //
             // BotTokenTextBox
-            // 
+            //
             this.BotTokenTextBox.Location = new System.Drawing.Point(558, 337);
             this.BotTokenTextBox.Name = "BotTokenTextBox";
             this.BotTokenTextBox.Size = new System.Drawing.Size(255, 20);
             this.BotTokenTextBox.TabIndex = 5;
             this.BotTokenTextBox.UseSystemPasswordChar = true;
-            // 
+            //
             // ChatIdLabel
-            // 
+            //
             this.ChatIdLabel.AutoSize = true;
             this.ChatIdLabel.Location = new System.Drawing.Point(830, 342);
             this.ChatIdLabel.Name = "ChatIdLabel";
             this.ChatIdLabel.Size = new System.Drawing.Size(46, 13);
             this.ChatIdLabel.TabIndex = 6;
             this.ChatIdLabel.Text = "Chat ID:";
-            // 
+            //
             // ChatIdTextBox
-            // 
+            //
             this.ChatIdTextBox.Location = new System.Drawing.Point(879, 337);
             this.ChatIdTextBox.Name = "ChatIdTextBox";
             this.ChatIdTextBox.Size = new System.Drawing.Size(140, 20);
             this.ChatIdTextBox.TabIndex = 7;
-            // 
+            //
             // SendTelegramButton
-            // 
+            //
             this.SendTelegramButton.Location = new System.Drawing.Point(1036, 335);
             this.SendTelegramButton.Name = "SendTelegramButton";
             this.SendTelegramButton.Size = new System.Drawing.Size(159, 26);
@@ -130,9 +130,9 @@ namespace BayesClassifier
             this.SendTelegramButton.Text = "Send to Telegram";
             this.SendTelegramButton.UseVisualStyleBackColor = true;
             this.SendTelegramButton.Click += new System.EventHandler(this.SendTelegramButton_Click);
-            // 
+            //
             // TelegramStatusLabel
-            // 
+            //
             this.TelegramStatusLabel.AutoSize = true;
             this.TelegramStatusLabel.Location = new System.Drawing.Point(493, 372);
             this.TelegramStatusLabel.MaximumSize = new System.Drawing.Size(700, 0);
@@ -140,7 +140,7 @@ namespace BayesClassifier
             this.TelegramStatusLabel.Size = new System.Drawing.Size(87, 13);
             this.TelegramStatusLabel.TabIndex = 9;
             this.TelegramStatusLabel.Text = "Telegram status:";
-            // 
+            //
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
